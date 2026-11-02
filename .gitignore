@@ -1,0 +1,26 @@
+# Local environments, caches, secrets and editor state
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.log
+runs/
+.DS_Store
+Thumbs.db
+
+# Preserve original files locally; do not publish redundant experiments
+local_originals/
+tempCodeRunnerFile.py
+README.py
+
+# Unverified third-party media/model redistribution rights
+Source_vids/*.mp4
+*.pt
+Working_screenshots/
+*.pptx
