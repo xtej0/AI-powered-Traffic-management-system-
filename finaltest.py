@@ -79,8 +79,7 @@ def show_video_detection(frame_key):
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
-            cap.release()
-            raise RuntimeError(f"Cannot read video: {video_path}")
+            break
 
         results = model(frame)
 

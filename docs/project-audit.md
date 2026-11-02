@@ -46,7 +46,7 @@ Environment: Windows, Python 3.13.5, Ultralytics 8.4.188, OpenCV 5.0.0.93, NumPy
 - Imported OpenCV, Tkinter, PyTorch and Ultralytics; loaded the local model and inspected its class names. Car, motorcycle, bus and truck are present; ambulance and firetruck are absent.
 - Decoded each video's first frame and performed real CPU inference: North 28, East 20, South 15, West 18 detections in the vehicle classes. GUI proposals were 30, 28, 23 and 26 seconds. These are observations on these local inputs, not accuracy measurements.
 - Executed all four entry points through a bounded `runpy` harness. The harness replaced Tkinter's main loop to update the window, invoke its first button and close it; OpenCV imshow was real, while waitKey returned q to stop playback after one frame. CLI sleep was bypassed. The CLI visited all four directions and proposed 45 seconds for each first-frame sample. No full-duration or unattended GUI behavior is claimed.
-- Three standard-library unit tests passed: portable path locations, missing-resource diagnostics, and explicit first-frame decode failure in each GUI.
+- Four standard-library unit tests passed: normal playback end-of-file, portable path locations, missing-resource diagnostics, and explicit first-frame decode failure in each GUI.
 - Python compilation passed for all published modules and tests.
 - `python -m pip check` reported no broken requirements in the existing environment.
 - Git whitespace validation passed. Publication uses an explicit source/documentation allowlist and a staged text/size review.

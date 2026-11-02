@@ -33,6 +33,25 @@ class ResourceTests(unittest.TestCase):
                     (base / name).touch()
                 config.validate_resources()
 
+    def test_playback_end_of_file_is_normal(self):
+        class Capture:
+            released = False
+            def isOpened(self):
+                return True
+            def read(self):
+                return False, None
+            def release(self):
+                self.released = True
+        capture = Capture()
+        class CV:
+            def VideoCapture(self, path):
+                return capture
+            def destroyAllWindows(self):
+                pass
+        playback = load_function("finaltest.py", "show_video_detection", {"cv2": CV(), "directions": {"Frame 1": "video.mp4"}})
+        playback("Frame 1")
+        self.assertTrue(capture.released)
+
     def test_unreadable_first_frame_is_not_zero_traffic(self):
         class Capture:
             released = False
